@@ -5,14 +5,6 @@ import {elementOrArrayOfElement} from "hire-forms-prop-types";
 import {castArray} from "hire-forms-utils";
 
 class Tabs extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			children: this.props.children
-		};
-	}
-
 	handleClick(index) {
 		if (this.props.onChange) {
 			let tabLabel = this.props.children[index].props.label;
