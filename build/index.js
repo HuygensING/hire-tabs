@@ -247,7 +247,6 @@ var Tabs = (function (_React$Component) {
 	_createClass(Tabs, [{
 		key: "handleClick",
 		value: function handleClick(index) {
-			console.log(index, this);
 			if (this.props.onChange) {
 				var tabLabel = this.props.children[index].props.label;
 				this.props.onChange(tabLabel, index);
