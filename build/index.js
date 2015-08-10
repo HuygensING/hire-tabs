@@ -183,15 +183,11 @@ var Tab = (function (_React$Component) {
 		value: function render() {
 			var style = !this.props.active ? { display: "none" } : {};
 
-			// if (this.props.active) {
 			return _react2["default"].createElement(
 				"div",
 				{ className: "hire-tab", style: style },
 				this.props.children
 			);
-			// }
-
-			// return null;
 		}
 	}]);
 
@@ -251,6 +247,7 @@ var Tabs = (function (_React$Component) {
 	_createClass(Tabs, [{
 		key: "handleClick",
 		value: function handleClick(index) {
+			console.log(index, this);
 			if (this.props.onChange) {
 				var tabLabel = this.props.children[index].props.label;
 				this.props.onChange(tabLabel, index);
@@ -264,7 +261,7 @@ var Tabs = (function (_React$Component) {
 			var children = (0, _hireFormsUtils.castArray)(this.props.children);
 
 			var labels = children.map(function (tab, index) {
-				return _react2["default"].createElement(
+				return tab == null ? null : _react2["default"].createElement(
 					"li",
 					{
 						className: (0, _classnames2["default"])({ active: tab.props.active }),

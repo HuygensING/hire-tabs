@@ -6,6 +6,7 @@ import {castArray} from "hire-forms-utils";
 
 class Tabs extends React.Component {
 	handleClick(index) {
+		console.log(index, this);
 		if (this.props.onChange) {
 			let tabLabel = this.props.children[index].props.label;
 			this.props.onChange(tabLabel, index);
@@ -15,16 +16,21 @@ class Tabs extends React.Component {
 	render() {
 		let children = castArray(this.props.children);
 
-		let labels = children.map((tab, index) =>
-			<li
-				className={cx({active: tab.props.active})}
-				key={index}
-				onClick={this.handleClick.bind(this, index)}>
-				<span className="label">
-					{tab.props.label}
-				</span>
-			</li>
-		);
+		let labels = children
+			.map((tab, index) => {
+				return (tab == null) ?
+					null :
+					<li
+						className={cx({active: tab.props.active})}
+						key={index}
+						onClick={this.handleClick.bind(this, index)}>
+						<span className="label">
+							{tab.props.label}
+						</span>
+					</li>;
+			}
+
+			);
 
 		return (
 			<div className="hire-tabs">
