@@ -1,4 +1,84 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.HireTabs = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+
+/*
+ * @param {Array} list
+ * @returns {Boolean}
+ */
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isListOfStrings = isListOfStrings;
+exports.isKeyValueMap = isKeyValueMap;
+exports.castArray = castArray;
+exports.castKeyValue = castKeyValue;
+exports.castKeyValueArray = castKeyValueArray;
+
+function isListOfStrings(list) {
+  if (!Array.isArray(list) || !list.length) {
+    return false;
+  }
+
+  return list.every(function (item) {
+    return typeof item === "string";
+  });
+}
+
+/*
+ * @param {Object} map
+ * @returns {Boolean}
+ */
+
+function isKeyValueMap(map) {
+  if (map == null) {
+    return false;
+  }
+
+  return map.hasOwnProperty("key") && map.hasOwnProperty("value");
+}
+
+/*
+ * Always return an array.
+ *
+ * @param {String|Array} arr
+ * @returns {Array}
+ */
+
+function castArray(arr) {
+  return Array.isArray(arr) ? arr : [arr];
+}
+
+;
+
+/*
+ * Always return a key/value map.
+ *
+ * @param {Number|String|Boolean|Object} item
+ * @returns {Array} Array of key value maps, ie: [{key: "A", value: "A"}, {key: "B", value: "B"}, ...]
+ */
+
+function castKeyValue(item) {
+  return isKeyValueMap(item) ? item : {
+    key: item,
+    value: item
+  };
+}
+
+/*
+ * Always return an array of key/value maps.
+ *
+ * @param {Number|String|Boolean|Array|Object} list
+ * @returns {Array} Array of key value maps, ie: [{key: "A", value: "A"}, {key: "B", value: "B"}, ...]
+ */
+
+function castKeyValueArray(list) {
+  list = castArray(list);
+
+  return list.map(castKeyValue);
+}
+
+},{}],2:[function(_dereq_,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46,7 +126,7 @@ var arrayOfStringOrArrayOfKeyValue = _react2["default"].PropTypes.oneOfType([_re
 }))]);
 exports.arrayOfStringOrArrayOfKeyValue = arrayOfStringOrArrayOfKeyValue;
 
-},{"react":"react"}],2:[function(_dereq_,module,exports){
+},{"react":"react"}],3:[function(_dereq_,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -66,7 +146,7 @@ var _tab2 = _interopRequireDefault(_tab);
 exports.Tabs = _tabs2["default"];
 exports.Tab = _tab2["default"];
 
-},{"./tab":3,"./tabs":4}],3:[function(_dereq_,module,exports){
+},{"./tab":4,"./tabs":5}],4:[function(_dereq_,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -101,15 +181,17 @@ var Tab = (function (_React$Component) {
 	_createClass(Tab, [{
 		key: "render",
 		value: function render() {
-			if (this.props.active) {
-				return _react2["default"].createElement(
-					"div",
-					{ className: "hire-tab" },
-					this.props.children
-				);
-			}
+			var style = !this.props.active ? { display: "none" } : {};
 
-			return null;
+			// if (this.props.active) {
+			return _react2["default"].createElement(
+				"div",
+				{ className: "hire-tab", style: style },
+				this.props.children
+			);
+			// }
+
+			// return null;
 		}
 	}]);
 
@@ -128,7 +210,7 @@ Tab.propTypes = {
 exports["default"] = Tab;
 module.exports = exports["default"];
 
-},{"hire-forms-prop-types":1,"react":"react"}],4:[function(_dereq_,module,exports){
+},{"hire-forms-prop-types":2,"react":"react"}],5:[function(_dereq_,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -220,16 +302,5 @@ Tabs.propTypes = {
 exports["default"] = Tabs;
 module.exports = exports["default"];
 
-},{"classnames":"classnames","hire-forms-prop-types":1,"hire-forms-utils":5,"react":"react"}],5:[function(_dereq_,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-var castArray = function castArray(array) {
-	return Array.isArray(array) ? array : [array];
-};
-exports.castArray = castArray;
-
-},{}]},{},[2])(2)
+},{"classnames":"classnames","hire-forms-prop-types":2,"hire-forms-utils":1,"react":"react"}]},{},[3])(3)
 });

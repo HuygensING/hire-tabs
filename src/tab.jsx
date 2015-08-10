@@ -4,15 +4,19 @@ import {elementOrArrayOfElement} from "hire-forms-prop-types";
 
 class Tab extends React.Component {
 	render() {
-		if (this.props.active) {
-			return (
-				<div className="hire-tab">
-					{this.props.children}
-				</div>
-			);
-		}
+		let style = (!this.props.active) ?
+			{display: "none"} :
+			{};
 
-		return null;
+		// if (this.props.active) {
+		return (
+			<div className="hire-tab" style={style}>
+				{this.props.children}
+			</div>
+		);
+		// }
+
+		// return null;
 	}
 }
 
