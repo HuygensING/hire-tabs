@@ -1,3 +1,6 @@
+### v1.0.3	(2015/8/10 16:0)
+* Remove console.log
+
 ### v1.0.2	(2015/8/10 14:58)
 * Allow a tab to be null
 * Clean up
