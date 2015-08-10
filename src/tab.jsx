@@ -8,15 +8,11 @@ class Tab extends React.Component {
 			{display: "none"} :
 			{};
 
-		// if (this.props.active) {
 		return (
 			<div className="hire-tab" style={style}>
 				{this.props.children}
 			</div>
 		);
-		// }
-
-		// return null;
 	}
 }
 
