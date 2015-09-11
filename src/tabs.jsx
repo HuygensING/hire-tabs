@@ -7,7 +7,9 @@ import {castArray} from "hire-forms-utils";
 class Tabs extends React.Component {
 	handleClick(index) {
 		if (this.props.onChange) {
-			let tabLabel = this.props.children[index].props.label;
+			let children = castArray(this.props.children);
+
+			let tabLabel = children[index].props.label;
 			this.props.onChange(tabLabel, index);
 		}
 	}

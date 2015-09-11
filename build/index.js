@@ -248,7 +248,9 @@ var Tabs = (function (_React$Component) {
 		key: "handleClick",
 		value: function handleClick(index) {
 			if (this.props.onChange) {
-				var tabLabel = this.props.children[index].props.label;
+				var children = (0, _hireFormsUtils.castArray)(this.props.children);
+
+				var tabLabel = children[index].props.label;
 				this.props.onChange(tabLabel, index);
 			}
 		}
