@@ -1,3 +1,6 @@
+### v1.0.4	(2015/9/11 10:43)
+* Fix bug: also cast array on click
+
 ### v1.0.3	(2015/8/10 16:0)
 * Remove console.log
 
