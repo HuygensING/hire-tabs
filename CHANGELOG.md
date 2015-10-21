@@ -1,3 +1,6 @@
+### v1.1.1	(2015/10/21 14:17)
+* Fix changelog
+
 ### v1.1.0	(2015/10/21 14:16)
 * Add optional className prop
 
