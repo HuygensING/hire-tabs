@@ -276,9 +276,11 @@ var Tabs = (function (_React$Component) {
 				);
 			});
 
+			var className = this.props.className != null ? "hire-tabs " + this.props.className : "hire-tabs";
+
 			return _react2["default"].createElement(
 				"div",
-				{ className: "hire-tabs" },
+				{ className: className },
 				_react2["default"].createElement(
 					"ul",
 					null,
@@ -294,6 +296,7 @@ var Tabs = (function (_React$Component) {
 
 Tabs.propTypes = {
 	children: _hireFormsPropTypes.elementOrArrayOfElement,
+	className: _react2["default"].PropTypes.string,
 	onChange: _react2["default"].PropTypes.func
 };
 

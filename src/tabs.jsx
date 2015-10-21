@@ -33,8 +33,12 @@ class Tabs extends React.Component {
 
 			);
 
+		let className = this.props.className != null ?
+			`hire-tabs ${this.props.className}` :
+			"hire-tabs";
+
 		return (
-			<div className="hire-tabs">
+			<div className={className}>
 				<ul>{labels}</ul>
 				{children}
 			</div>
@@ -44,6 +48,7 @@ class Tabs extends React.Component {
 
 Tabs.propTypes = {
 	children: elementOrArrayOfElement,
+	className: React.PropTypes.string,
 	onChange: React.PropTypes.func
 };
 
