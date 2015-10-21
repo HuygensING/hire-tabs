@@ -1,5 +1,5 @@
 ### v1.1.0	(2015/10/21 14:16)
-
+* Add optional className prop
 
 ### v1.0.4	(2015/9/11 10:43)
 * Fix bug: also cast array on click
