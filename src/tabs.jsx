@@ -33,13 +33,17 @@ class Tabs extends React.Component {
 
 			);
 
+		labels = labels.length ?
+			<ul>{labels}</ul> :
+			null;
+
 		let className = this.props.className != null ?
 			`hire-tabs ${this.props.className}` :
 			"hire-tabs";
 
 		return (
 			<div className={className}>
-				<ul>{labels}</ul>
+				{labels}
 				{children}
 			</div>
 		);

@@ -276,16 +276,18 @@ var Tabs = (function (_React$Component) {
 				);
 			});
 
+			labels = labels.length ? _react2["default"].createElement(
+				"ul",
+				null,
+				labels
+			) : null;
+
 			var className = this.props.className != null ? "hire-tabs " + this.props.className : "hire-tabs";
 
 			return _react2["default"].createElement(
 				"div",
 				{ className: className },
-				_react2["default"].createElement(
-					"ul",
-					null,
-					labels
-				),
+				labels,
 				children
 			);
 		}
