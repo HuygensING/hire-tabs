@@ -1,3 +1,6 @@
+### v1.1.2	(2015/10/22 16:31)
+* Hide (empty) tab menu when tabs are empty
+
 ### v1.1.1	(2015/10/21 14:17)
 * Fix changelog
 
