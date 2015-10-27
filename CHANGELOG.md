@@ -1,3 +1,6 @@
+### v1.1.3	(2015/10/27 18:3)
+* Syntax highlight JS in README
+
 ### v1.1.2	(2015/10/22 16:31)
 * Hide (empty) tab menu when tabs are empty
 
