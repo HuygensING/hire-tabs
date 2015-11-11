@@ -165,6 +165,10 @@ var _react = _dereq_("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _classnames = _dereq_("classnames");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 var _hireFormsPropTypes = _dereq_("hire-forms-prop-types");
 
 var Tab = (function (_React$Component) {
@@ -185,7 +189,9 @@ var Tab = (function (_React$Component) {
 
 			return _react2["default"].createElement(
 				"div",
-				{ className: "hire-tab", style: style },
+				{
+					className: (0, _classnames2["default"])("hire-tab", { active: this.props.active }),
+					style: style },
 				this.props.children
 			);
 		}
@@ -206,7 +212,7 @@ Tab.propTypes = {
 exports["default"] = Tab;
 module.exports = exports["default"];
 
-},{"hire-forms-prop-types":2,"react":"react"}],5:[function(_dereq_,module,exports){
+},{"classnames":"classnames","hire-forms-prop-types":2,"react":"react"}],5:[function(_dereq_,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

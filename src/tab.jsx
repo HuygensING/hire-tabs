@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 
 import {elementOrArrayOfElement} from "hire-forms-prop-types";
 
@@ -9,7 +10,12 @@ class Tab extends React.Component {
 			{};
 
 		return (
-			<div className="hire-tab" style={style}>
+			<div
+				className={cx(
+					"hire-tab",
+					{active: this.props.active}
+				)}
+				style={style}>
 				{this.props.children}
 			</div>
 		);
