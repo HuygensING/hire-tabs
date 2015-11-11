@@ -1,3 +1,6 @@
+### v1.1.4	(2015/11/11 14:52)
+* Add active class to hire-tab
+
 ### v1.1.3	(2015/10/27 18:3)
 * Syntax highlight JS in README
 
