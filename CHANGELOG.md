@@ -1,3 +1,6 @@
+### v1.2.0	(2015/11/16 11:5)
+* Add custom className to tab (and tab list)
+
 ### v1.1.4	(2015/11/11 14:52)
 * Add active class to hire-tab
 
