@@ -150,12 +150,14 @@ exports.Tab = _tab2["default"];
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defineProperty(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -172,41 +174,41 @@ var _classnames2 = _interopRequireDefault(_classnames);
 var _hireFormsPropTypes = _dereq_("hire-forms-prop-types");
 
 var Tab = (function (_React$Component) {
-	function Tab() {
-		_classCallCheck(this, Tab);
+  function Tab() {
+    _classCallCheck(this, Tab);
 
-		if (_React$Component != null) {
-			_React$Component.apply(this, arguments);
-		}
-	}
+    if (_React$Component != null) {
+      _React$Component.apply(this, arguments);
+    }
+  }
 
-	_inherits(Tab, _React$Component);
+  _inherits(Tab, _React$Component);
 
-	_createClass(Tab, [{
-		key: "render",
-		value: function render() {
-			var style = !this.props.active ? { display: "none" } : {};
+  _createClass(Tab, [{
+    key: "render",
+    value: function render() {
+      var style = !this.props.active ? { display: "none" } : {};
 
-			return _react2["default"].createElement(
-				"div",
-				{
-					className: (0, _classnames2["default"])("hire-tab", { active: this.props.active }),
-					style: style },
-				this.props.children
-			);
-		}
-	}]);
+      return _react2["default"].createElement(
+        "div",
+        {
+          className: (0, _classnames2["default"])("hire-tab", { active: this.props.active }, _defineProperty({}, this.props.className, this.props.className != null)),
+          style: style },
+        this.props.children
+      );
+    }
+  }]);
 
-	return Tab;
+  return Tab;
 })(_react2["default"].Component);
 
 Tab.defaultProps = {
-	active: false
+  active: false
 };
 
 Tab.propTypes = {
-	active: _react2["default"].PropTypes.bool,
-	children: _hireFormsPropTypes.elementOrArrayOfElement
+  active: _react2["default"].PropTypes.bool,
+  children: _hireFormsPropTypes.elementOrArrayOfElement
 };
 
 exports["default"] = Tab;
@@ -216,12 +218,14 @@ module.exports = exports["default"];
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defineProperty(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -240,72 +244,70 @@ var _hireFormsPropTypes = _dereq_("hire-forms-prop-types");
 var _hireFormsUtils = _dereq_("hire-forms-utils");
 
 var Tabs = (function (_React$Component) {
-	function Tabs() {
-		_classCallCheck(this, Tabs);
+  function Tabs() {
+    _classCallCheck(this, Tabs);
 
-		if (_React$Component != null) {
-			_React$Component.apply(this, arguments);
-		}
-	}
+    if (_React$Component != null) {
+      _React$Component.apply(this, arguments);
+    }
+  }
 
-	_inherits(Tabs, _React$Component);
+  _inherits(Tabs, _React$Component);
 
-	_createClass(Tabs, [{
-		key: "handleClick",
-		value: function handleClick(index) {
-			if (this.props.onChange) {
-				var children = (0, _hireFormsUtils.castArray)(this.props.children);
+  _createClass(Tabs, [{
+    key: "handleClick",
+    value: function handleClick(index) {
+      if (this.props.onChange) {
+        var children = (0, _hireFormsUtils.castArray)(this.props.children);
 
-				var tabLabel = children[index].props.label;
-				this.props.onChange(tabLabel, index);
-			}
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			var _this = this;
+        var tabLabel = children[index].props.label;
+        this.props.onChange(tabLabel, index);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
 
-			var children = (0, _hireFormsUtils.castArray)(this.props.children);
+      var children = (0, _hireFormsUtils.castArray)(this.props.children);
 
-			var labels = children.map(function (tab, index) {
-				return tab == null ? null : _react2["default"].createElement(
-					"li",
-					{
-						className: (0, _classnames2["default"])({ active: tab.props.active }),
-						key: index,
-						onClick: _this.handleClick.bind(_this, index) },
-					_react2["default"].createElement(
-						"span",
-						{ className: "label" },
-						tab.props.label
-					)
-				);
-			});
+      var labels = children.map(function (tab, index) {
+        return tab == null ? null : _react2["default"].createElement(
+          "li",
+          {
+            className: (0, _classnames2["default"])(_defineProperty({
+              active: tab.props.active
+            }, tab.props.className, tab.props.className != null)),
+            key: index,
+            onClick: _this.handleClick.bind(_this, index) },
+          _react2["default"].createElement(
+            "span",
+            { className: "label" },
+            tab.props.label
+          )
+        );
+      });
 
-			labels = labels.length ? _react2["default"].createElement(
-				"ul",
-				null,
-				labels
-			) : null;
+      return _react2["default"].createElement(
+        "div",
+        { className: (0, _classnames2["default"])("hire-tabs", _defineProperty({}, this.props.className, this.props.className != null)) },
+        labels.length ? _react2["default"].createElement(
+          "ul",
+          null,
+          labels
+        ) : null,
+        children
+      );
+    }
+  }]);
 
-			var className = this.props.className != null ? "hire-tabs " + this.props.className : "hire-tabs";
-
-			return _react2["default"].createElement(
-				"div",
-				{ className: className },
-				labels,
-				children
-			);
-		}
-	}]);
-
-	return Tabs;
+  return Tabs;
 })(_react2["default"].Component);
 
 Tabs.propTypes = {
-	children: _hireFormsPropTypes.elementOrArrayOfElement,
-	className: _react2["default"].PropTypes.string,
-	onChange: _react2["default"].PropTypes.func
+  children: _hireFormsPropTypes.elementOrArrayOfElement,
+  className: _react2["default"].PropTypes.string,
+  onChange: _react2["default"].PropTypes.func
 };
 
 exports["default"] = Tabs;
