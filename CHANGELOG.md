@@ -1,3 +1,6 @@
+### v2.0.0	(2016/5/16 13:7)
+* Remove display:(block|none) and only render one tab at a time
+
 ### v1.2.0	(2015/11/16 11:5)
 * Add custom className to tab (and tab list)
 
