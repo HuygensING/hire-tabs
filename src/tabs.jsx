@@ -20,13 +20,14 @@ class Tabs extends React.Component {
   }
 
   handleClick(index) {
-    if (this.props.onChange) {
-      let children = castArray(this.props.children);
+    const children = castArray(this.props.children);
+    const activeTab = children[index].props.label;
 
-      let tabLabel = children[index].props.label;
-      this.setState({ activeTab: tabLabel })
-      this.props.onChange(tabLabel, index);
-    }
+    this.setState({ activeTab });
+
+		if (this.props.onChange != null) {
+			this.props.onChange(activeTab, index);
+		}
   }
 
   render() {
