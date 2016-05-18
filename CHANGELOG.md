@@ -1,3 +1,6 @@
+### v2.0.1	(2016/5/18 12:47)
+* Handle tab change when props.onChange == null
+
 ### v2.0.0	(2016/5/16 13:7)
 * Remove display:(block|none) and only render one tab at a time
 
