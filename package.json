@@ -2,6 +2,7 @@
   "name": "hire-tabs",
   "version": "2.0.2",
   "description": "",
+	"keywords": ["react-component", "tabs"],
   "main": "build/index.js",
   "scripts": {
     "start": "scripts/watch.sh",
