@@ -1,3 +1,6 @@
+### v2.0.2	(2016/5/23 17:21)
+* Update README to reflect v2
+
 ### v2.0.1	(2016/5/18 12:47)
 * Handle tab change when props.onChange == null
 
