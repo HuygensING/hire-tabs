@@ -4,33 +4,27 @@ Tabs. You know and love.
 
 ## Example
 ```javascript
-import {Tabs, Tab} from "hire-tabs";
-import {SomeComponent, SomeOtherComponents} from "some-component-collection"
+import React, { Component } from 'react';
+import { Tabs, Tab } from 'hire-tabs';
+import history from './history';
+import { SomeComponent, SomeOtherComponents } from 'some-component-collection';
 
-class MyTabbedComponent extends React.Component {
-	handleTabChange(label, index) {
-		let path = `/some-route/${label}`;
-
-		// You could be using ReactRouter
-		this.transitionTo(path);
+class MyTabbedComponent extends Component {
+	// Catch tab change. For example: to alter the history.
+	handleTabChange = (label, /* index */) => {
+		const path = `/some-route/${label}`;
+		history.push(path);
 	}
 
 	render() {
-		// You could be using ReactRouter
-		let tabName = (this.getParams().hasOwnProperty("tab")) ?
-			this.getParams().tab :
-			"first-tab";
-
 		return (
-			<Tabs onChange={this.handleTabChange}>
-				<Tab
-					active={tabName === "first-tab"}
-					label="First Tab">
+			<Tabs
+				activeTab="first-tab"
+				onChange={this.handleTabChange}>
+				<Tab label="First Tab">
 					<SomeComponent />
 				</Tab>
-				<Tab
-					active={tabName === "second-tab"}
-					label="Second Tab">
+				<Tab label="Second Tab">
 					<SomeOtherComponent />
 				</Tab>
 			</Tabs>
@@ -39,9 +33,3 @@ class MyTabbedComponent extends React.Component {
 }
 ```
 
-## Why doesn't Hire Tabs have an internal state?
-
-An option would be to let `<Tabs>` have an internal state, which
-tracks which `<Tab>` is active and upon state change, renders the required
-`<Tab>`. But... This is behaviour which is sometimes unwanted, because you
-want the parent component to decide which `<Tab>` is shown. For example, in case of page load and the tab name is in the URL.
