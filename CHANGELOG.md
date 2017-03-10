@@ -1,3 +1,7 @@
+### v2.0.3	(2017/3/10 17:27)
+* Move to typescript
+* Add keywords to npm
+
 ### v2.0.2	(2016/5/23 17:21)
 * Update README to reflect v2
 
