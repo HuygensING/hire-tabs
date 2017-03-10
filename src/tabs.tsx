@@ -1,25 +1,20 @@
-import React from "react";
-import cx from "classnames";
+import * as React from "react";
+import * as cx from "classnames";
 
-import {elementOrArrayOfElement} from "hire-forms-prop-types";
-import {castArray} from "hire-forms-utils";
+const castArray = (arr: any): any[] => (Array.isArray(arr)) ? arr : [arr];
 
-class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
+class Tabs extends React.Component<any, any> {
+	public state = {
+		activeTab: this.props.activeTab
+	};
 
-    this.state = {
-      activeTab: props.activeTab
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
+  public componentWillReceiveProps(nextProps) {
     if (this.state.activeTab !== nextProps.activeTab) {
       this.setState({ activeTab: nextProps.activeTab });
     }
   }
 
-  handleClick(index) {
+  private handleClick(index) {
     const children = castArray(this.props.children);
     const activeTab = children[index].props.label;
 
@@ -30,7 +25,7 @@ class Tabs extends React.Component {
 		}
   }
 
-  render() {
+  public render() {
     let children = castArray(this.props.children);
 
     let labels = children
@@ -64,10 +59,10 @@ class Tabs extends React.Component {
   }
 }
 
-Tabs.propTypes = {
-  children: elementOrArrayOfElement,
-  className: React.PropTypes.string,
-  onChange: React.PropTypes.func
-};
+// Tabs.propTypes = {
+//   children: elementOrArrayOfElement,
+//   className: React.PropTypes.string,
+//   onChange: React.PropTypes.func
+// };
 
 export default Tabs;
