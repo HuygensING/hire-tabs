@@ -1,32 +1,29 @@
-import * as React from "react";
-import * as cx from "classnames";
+import * as React from "react"
+import * as cx from "classnames"
 
-const castArray = (arr: any): any[] => (Array.isArray(arr)) ? arr : [arr];
+const castArray = (arr: any): any[] => (Array.isArray(arr)) ? arr : [arr]
 
-class Tabs extends React.Component<any, any> {
-	public state = {
+interface Props {
+	activeTab: string
+	className?: string
+	onChange: (tab: string, index: number) => void
+}
+interface State {
+	activeTab: string
+}
+export default class Tabs extends React.PureComponent<Props, State> {
+	state: State = {
 		activeTab: this.props.activeTab
-	};
+	}
 
-  public componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     if (this.state.activeTab !== nextProps.activeTab) {
-      this.setState({ activeTab: nextProps.activeTab });
+      this.setState({ activeTab: nextProps.activeTab })
     }
   }
 
-  private handleClick(index) {
-    const children = castArray(this.props.children);
-    const activeTab = children[index].props.label;
-
-    this.setState({ activeTab });
-
-		if (this.props.onChange != null) {
-			this.props.onChange(activeTab, index);
-		}
-  }
-
-  public render() {
-    let children = castArray(this.props.children);
+  render() {
+    let children = castArray(this.props.children)
 
     let labels = children
       .map((tab, index) => {
@@ -42,10 +39,10 @@ class Tabs extends React.Component<any, any> {
             <span className="label">
               {tab.props.label}
             </span>
-          </li>;
-      });
+          </li>
+      })
 
-    const child = children.find((tab) => tab.props.label === this.state.activeTab);
+    const child = children.find((tab) => tab.props.label === this.state.activeTab)
 
     return (
       <div className={cx(
@@ -55,14 +52,18 @@ class Tabs extends React.Component<any, any> {
         {labels.length ? <ul>{labels}</ul> : null}
         {child}
       </div>
-    );
+    )
+  }
+
+  private handleClick(index: number) {
+    const children = castArray(this.props.children)
+    const activeTab = children[index].props.label
+
+    this.setState({ activeTab })
+
+		if (this.props.onChange != null) {
+			this.props.onChange(activeTab, index)
+		}
   }
 }
 
-// Tabs.propTypes = {
-//   children: elementOrArrayOfElement,
-//   className: React.PropTypes.string,
-//   onChange: React.PropTypes.func
-// };
-
-export default Tabs;

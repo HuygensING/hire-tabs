@@ -22,12 +22,13 @@
   },
   "homepage": "https://github.com/Hire-Forms/hire-tabs",
   "devDependencies": {
-    "@types/react": "^15.0.15",
+    "@types/classnames": "^2.2.6",
+    "@types/react": "^16.3.16",
     "hi-bump": "^1.1.1",
-    "typescript": "^2.2.1"
+    "typescript": "^3.1.6"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "react": "^15.4.2"
+    "classnames": "^2.2.6",
+    "react": "^16.4.0"
   }
 }

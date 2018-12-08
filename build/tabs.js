@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const cx = require("classnames");
 const castArray = (arr) => (Array.isArray(arr)) ? arr : [arr];
-class Tabs extends React.Component {
+class Tabs extends React.PureComponent {
     constructor() {
         super(...arguments);
         this.state = {
@@ -13,14 +13,6 @@ class Tabs extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (this.state.activeTab !== nextProps.activeTab) {
             this.setState({ activeTab: nextProps.activeTab });
-        }
-    }
-    handleClick(index) {
-        const children = castArray(this.props.children);
-        const activeTab = children[index].props.label;
-        this.setState({ activeTab });
-        if (this.props.onChange != null) {
-            this.props.onChange(activeTab, index);
         }
     }
     render() {
@@ -39,6 +31,14 @@ class Tabs extends React.Component {
         return (React.createElement("div", { className: cx("hire-tabs", { [this.props.className]: this.props.className != null }) },
             labels.length ? React.createElement("ul", null, labels) : null,
             child));
+    }
+    handleClick(index) {
+        const children = castArray(this.props.children);
+        const activeTab = children[index].props.label;
+        this.setState({ activeTab });
+        if (this.props.onChange != null) {
+            this.props.onChange(activeTab, index);
+        }
     }
 }
 exports.default = Tabs;
