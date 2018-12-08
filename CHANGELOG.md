@@ -1,3 +1,6 @@
+### v2.0.4	(2018/12/8 10:20)
+* Add src and build dirs
+
 ### v2.0.3	(2017/3/10 17:27)
 * Move to typescript
 * Add keywords to npm
