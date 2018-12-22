@@ -1,14 +1,16 @@
 {
   "name": "hire-tabs",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "",
   "keywords": [
     "react-component",
     "tabs"
   ],
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "start": "scripts/watch.sh",
+    "build": "tsc",
+    "watch": "tsc -w",
     "bump": "hi-bump"
   },
   "repository": {
@@ -23,12 +25,12 @@
   "homepage": "https://github.com/Hire-Forms/hire-tabs",
   "devDependencies": {
     "@types/classnames": "^2.2.6",
-    "@types/react": "^16.3.16",
+    "@types/react": "^16.7.18",
     "hi-bump": "^1.1.1",
-    "typescript": "^3.1.6"
+    "typescript": "^3.2.2"
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "react": "^16.4.0"
+    "react": "^16.7.0"
   }
 }
